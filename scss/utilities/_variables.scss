@@ -1,0 +1,22 @@
+// Secciones
+$secciones: index, nosotros, cursos, semillas, contacto, construccion;
+
+// Colores
+$colorTextoTienda: #0D5102;
+$colorTextoPrincipal: floralwhite;
+$colorTextoSecundario: #051922;
+$fondoColor: #0D5102;
+$fondoColorCards: floralwhite;
+$fondoColorForm: floralwhite;
+$fondoColorFormHover: rgb(60, 150, 60);
+$fondoColorTitulo: floralwhite;
+
+
+// Alturas
+$alturaHeader: 95px;
+$alturaMain: 100vh;
+$alturaFooter: 290px;
+
+$alturaMobile: (header: $alturaHeader, footer: $alturaFooter);
+$alturaTablet: (header: $alturaHeader*1.6, footer: ($alturaFooter)-70px);
+$alturaEscritorio: (header: $alturaHeader*2, footer: ($alturaFooter)-70px);

@@ -1,0 +1,74 @@
+// Body
+body {
+    font-family: "Open Sans", sans-serif;
+    color: $colorTextoSecundario;
+}
+
+// Tamaños para fuentes de encabezados
+$encabezados: (
+    h1: 2.5rem,
+    h2: 2.3rem,
+    h3: 2rem,
+    h4: 1.5rem,
+    h5: 0.9rem,
+    h6: 0.7rem
+);
+
+// Titulos
+h1,
+h3 {
+    font-family: 'Dancing Script', cursive;
+    color: $colorTextoPrincipal;
+}
+
+h1 {
+    font-size: map-get($encabezados, h1);
+}
+
+h3 {
+    font-size: map-get($encabezados, h3);
+    text-align: center;
+    color: $colorTextoTienda;
+}
+
+h5 {
+    font-size: map-get($encabezados, h5);
+}
+
+h6 {
+    color: $colorTextoPrincipal;
+    text-align: center;
+    font-size: map-get($encabezados, h6);
+}
+
+// Enlaces
+a {
+    text-decoration: none;
+}
+
+
+@mixin propiedadesTexto($alineacion, $padding, $fondo) {
+    text-align: $alineacion;
+    padding: $padding;
+    background-color: $fondo;
+}
+
+// Párrafos
+p {
+    @include propiedadesTexto(justify, 1rem, $fondoColor);
+    font-size: 0.7rem;
+    color: #fff;
+    margin: 1rem;
+    border-radius: 10px;
+    align-items: center;
+}
+
+// Título página
+.tituloPagina {
+    @include propiedadesTexto(center, 1rem, $fondoColor);
+    opacity: 0.5;
+    width: 100%;
+    h3 {
+        color: $colorTextoPrincipal;
+    }
+}

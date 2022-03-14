@@ -1,0 +1,82 @@
+// Grid areas
+.index,
+.nosotros,
+.cursos {
+    .tituloPagina {
+        grid-area: tituloPagina;
+    }
+
+    .imagenPrincipal {
+        grid-area: imagenPrincipal;
+    }
+
+    .texto1 {
+        grid-area: texto1;
+    }
+
+    .texto2 {
+        grid-area: texto2;
+    }
+
+    .texto3 {
+        grid-area: texto3;
+    }
+
+    .video {
+        grid-area: video;
+    }
+
+    .tienda {
+        grid-area: tienda;
+    }
+
+    .carouselImagenes {
+        grid-area: carouselImagenes;
+    }
+}
+
+// Grids
+.index {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "carouselImagenes"
+        "texto1"
+        "tienda"
+        "texto2";
+
+    .tienda {
+        .containerImagenes {
+            display: grid;
+            grid-template-rows: repeat(3, 180px);
+            grid-template-columns: 1fr;
+            justify-items: center;
+            justify-content: center;
+            grid-row-gap: 1rem;
+        }
+    }
+}
+
+.nosotros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas:
+        "tituloPagina     tituloPagina"
+        "texto1     texto1"
+        "texto2     texto2"
+        "texto3     texto3"
+        "video      video";
+}
+
+.cursos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-template-areas:
+        "tituloPagina tituloPagina"
+        "texto1 texto1"
+        "video video"
+        "texto2 texto2";
+}

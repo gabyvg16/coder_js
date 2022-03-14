@@ -1,0 +1,32 @@
+// Carrito de compras
+.ventanaCarrito{
+    background: $fondoColorCards;
+    width: 100%;
+    border-radius: 10px;
+    min-height: 300px;
+    position: absolute;
+    z-index: 1;
+    display: none;
+    padding: 1rem;
+    .tituloCarrito {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+    }
+    .productoCarrito{
+        display: flex;
+        margin: 1rem;
+        justify-content: space-between;
+    }
+    .imagenCarrito{
+        width: 100px;
+        height: auto;
+    }
+    .textoCarrito{
+        background: none;
+        color: $colorTextoSecundario;
+        padding: 0rem;
+    }
+}
+
+

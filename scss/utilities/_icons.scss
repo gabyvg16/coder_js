@@ -1,0 +1,29 @@
+/* Iconos */
+$iconos: (
+    iconoWhatsapp: $colorTextoPrincipal,
+    iconoCarrito: $colorTextoPrincipal
+);
+
+// Color íconos
+@each $icono, $color in $iconos {
+    .#{$icono} {
+        color: $color;
+    }
+}
+
+/* Carrito */
+.iconoCarrito {
+    display: inline-block;
+    padding: 10px;
+}
+
+/* Whatsapp */
+.iconoWhatsapp {
+    background-color: $fondoColor;
+    font-size: 2rem;
+    padding: 0.6rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+}

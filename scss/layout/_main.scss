@@ -1,0 +1,67 @@
+// Calculo de altura
+@mixin calculoAlturaMain($alturaDispositivo) {
+    min-height: calc(#{$alturaMain} - #{map-get($alturaDispositivo, header)} - #{map-get($alturaDispositivo, footer)});
+}
+
+.main {
+    @include calculoAlturaMain($alturaMobile);
+}
+
+// Background
+@each $seccion in $secciones {
+    .#{$seccion} {
+        background-image: url(../img/background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 3rem;
+    }
+}
+
+// Index
+.index {
+    .tienda {
+        .containerImagenes {
+            padding: 1rem;
+
+            .containerImagen {
+                .imagenTienda {
+                    width: 180px;
+                    height: auto;
+                    box-shadow: 6px 6px 8px -1px rgba(0, 0, 0, 0.6);
+                }
+
+                .tituloImagen {
+                    height: 80px;
+                    width: 180px;
+                    background-color: $fondoColorTitulo;
+                    transform: translate(0%, -155%);
+                    opacity: 50%;
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 2rem;
+                    text-align: center;
+                    color: $colorTextoSecundario;
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+// Video
+.cursos,
+.nosotros {
+    .video {
+        max-width: 500px;
+        height: 300px;
+        padding: 1rem;
+    }
+}
+
+// Displays
+.nosotros {
+    .mostrar {
+        display: none;
+    }
+}
