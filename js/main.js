@@ -15,11 +15,16 @@ class Producto {
 let carrito = [];
 
 
-// Eventos
+// Manejar eventos
 let botonesCompra = document.getElementsByClassName("btnCompra");
 for (let i = 0; i < botonesCompra.length; i++) {
     botonesCompra[i].addEventListener("click", agregarProducto.bind(this, i + 1));
 }
+
+document.getElementById("carritoIcon").onclick = mostrarCarrito;
+document.getElementById("cerrarCarrito").onclick = cerrarCarrito;
+
+
 
 // Agrega producto al carrito
 function agregarProducto(item) {
@@ -57,9 +62,7 @@ function mostrarCarrito() {
     document.getElementById("ventanaCarrito").style.display = "block";
 
     let lista = document.getElementById("listadoCarrito");
-    // if (carrito.length > 0) {
-        lista.innerHTML = "";
-    // }
+    lista.innerHTML = "";
 
     for (const producto of carrito) {
         let prod = document.createElement("div");
