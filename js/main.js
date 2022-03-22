@@ -14,6 +14,13 @@ class Producto {
 // Carrito de compras
 let carrito = [];
 
+
+// Eventos
+let botonesCompra = document.getElementsByClassName("btnCompra");
+for (let i = 0; i < botonesCompra.length; i++) {
+    botonesCompra[i].addEventListener("click", agregarProducto.bind(this, i + 1));
+}
+
 // Agrega producto al carrito
 function agregarProducto(item) {
     // Obtengo datos
@@ -50,9 +57,9 @@ function mostrarCarrito() {
     document.getElementById("ventanaCarrito").style.display = "block";
 
     let lista = document.getElementById("listadoCarrito");
-    if (carrito.length > 0) {
+    // if (carrito.length > 0) {
         lista.innerHTML = "";
-    }
+    // }
 
     for (const producto of carrito) {
         let prod = document.createElement("div");
