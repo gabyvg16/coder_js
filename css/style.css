@@ -218,7 +218,8 @@ p {
   .ventanaCarrito .productoCarrito {
     display: flex;
     margin: 1rem;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: center; }
   .ventanaCarrito .imagenCarrito {
     width: 100px;
     height: auto; }
@@ -226,6 +227,10 @@ p {
     background: none;
     color: #051922;
     padding: 0rem; }
+  .ventanaCarrito .btnCarrito {
+    border-radius: 10px;
+    border: none;
+    font-weight: bold; }
 
 /* Iconos */
 .iconoWhatsapp {

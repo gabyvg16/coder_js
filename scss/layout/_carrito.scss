@@ -17,6 +17,7 @@
         display: flex;
         margin: 1rem;
         justify-content: space-between;
+        align-items: center;
     }
     .imagenCarrito{
         width: 100px;
@@ -26,6 +27,11 @@
         background: none;
         color: $colorTextoSecundario;
         padding: 0rem;
+    }
+    .btnCarrito{
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
     }
 }
 
