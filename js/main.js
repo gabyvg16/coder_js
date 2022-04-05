@@ -104,6 +104,19 @@ function agregarProducto(item) {
 
     // Guardo carrito en LocalStorage
     localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Mensaje
+    Toastify({
+        text: `Agregaste ${nombre} al carrito`,
+        duration: 3000,
+        close: true,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
 }
 
 
@@ -111,6 +124,14 @@ function agregarProducto(item) {
 function disminuirCantidad(i) {
     let producto = document.getElementById(`carritoItem${i}`).innerText;
     let indice = carrito.findIndex((prod) => prod.nombre == producto);
+
+    if (carrito[indice].cantidad == 1) {
+        swal({
+            title: "Carrito de compras",
+            text: `Has eliminado ${producto} del carrito`,
+            icon: "success",
+        });
+    } 
 
     ((carrito[indice].cantidad - 1) == 0) ? carrito.splice(indice, 1): carrito[indice].cantidad--;
 
