@@ -1,6 +1,28 @@
 /**************************************************************/
 /********************** TIENDA ONLINE *************************/
 /**************************************************************/
+// Consulta stock disponible
+let stock = [];
+
+const actStock = async () => {
+    const resp = await fetch('../json/productos.json');
+    const data = await resp.json();
+    data.forEach((prod) => {
+        stock.push({
+            nombre: prod.nombre,
+            disponible: prod.stock
+        });
+    })
+}
+
+actStock()
+
+// Devuelve producto y stock
+function consultaStock(productoCarrito) {
+    return stock.find((prod) => prod.nombre == productoCarrito);
+}
+
+
 // Inicializa objeto producto
 class Producto {
     constructor(nombre, imagen, cantidad, precio) {
@@ -86,6 +108,13 @@ function agregarProducto(item) {
         return;
     }
 
+    // Verifico stock
+    let stock = consultaStock(nombre);
+    if (cantidad > stock.disponible) {
+        alert(`El stock disponible es de ${stock.disponible} unidades`);
+        return;
+    }
+
     // Buscar si está en carrito.
     let noExiste = carrito.every((prod) => {
         if (prod.nombre == nombre) {
@@ -110,13 +139,13 @@ function agregarProducto(item) {
         text: `Agregaste ${nombre} al carrito`,
         duration: 3000,
         close: true,
-        gravity: "top", 
-        position: "right", 
+        gravity: "top",
+        position: "right",
         stopOnFocus: true,
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
         },
-      }).showToast();
+    }).showToast();
 }
 
 
@@ -131,7 +160,7 @@ function disminuirCantidad(i) {
             text: `Has eliminado ${producto} del carrito`,
             icon: "success",
         });
-    } 
+    }
 
     ((carrito[indice].cantidad - 1) == 0) ? carrito.splice(indice, 1): carrito[indice].cantidad--;
 
@@ -146,6 +175,14 @@ function aumentarCantidad(i) {
     let producto = document.getElementById(`carritoItem${i}`).innerText;
 
     let indice = carrito.findIndex((prod) => prod.nombre == producto);
+
+    // Verifico stock
+    let stock = consultaStock(producto);
+    if ((carrito[indice].cantidad + 1) > stock.disponible) {
+        alert(`El stock disponible es de ${stock.disponible} unidades`);
+        return;
+    }
+
     carrito[indice].cantidad++;
 
     // Actualizo carrito

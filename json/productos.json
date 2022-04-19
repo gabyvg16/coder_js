@@ -1,0 +1,26 @@
+[
+    {
+      "nombre": "Zanahorias",
+      "stock": 5
+    },
+    {
+      "nombre": "Girasol",
+      "stock": 0
+    },
+    {
+      "nombre": "Acelga",
+      "stock": 13
+    },
+    {
+      "nombre": "Calendula",
+      "stock": 55
+    },
+    {
+      "nombre": "Tomates cherry",
+      "stock": 1
+    },
+    {
+      "nombre": "Coreopsis",
+      "stock": 15
+    }
+]
