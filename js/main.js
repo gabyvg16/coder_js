@@ -104,14 +104,22 @@ function agregarProducto(item) {
     let precio = parseInt((document.getElementById(`precioItem${item}`).innerText).split(' ')[1]);
 
     if (cantidad <= 0) {
-        alert("Debe ingresar cantidad mayor a cero");
+        swal({
+            title: "Agregar producto",
+            text: `Debe ingresar cantidad mayor a cero`,
+            icon: "info",
+        });
         return;
     }
 
     // Verifico stock
     let stock = consultaStock(nombre);
     if (cantidad > stock.disponible) {
-        alert(`El stock disponible es de ${stock.disponible} unidades`);
+        swal({
+            title: "No disponible",
+            text: `El stock disponible es de ${stock.disponible} unidades`,
+            icon: "info",
+        });
         return;
     }
 
@@ -179,7 +187,11 @@ function aumentarCantidad(i) {
     // Verifico stock
     let stock = consultaStock(producto);
     if ((carrito[indice].cantidad + 1) > stock.disponible) {
-        alert(`El stock disponible es de ${stock.disponible} unidades`);
+        swal({
+            title: "No disponible",
+            text: `El stock disponible es de ${stock.disponible} unidades`,
+            icon: "info",
+        });
         return;
     }
 
